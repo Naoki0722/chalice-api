@@ -1,0 +1,23 @@
+{
+  "python.analysis.typeCheckingMode": "basic",
+  "python.languageServer": "Pylance",
+  "python.analysis.inlayHints.functionReturnTypes": false,
+  "python.analysis.inlayHints.variableTypes": false,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.flake8Args": [
+    "--max-line-length",
+    "120",
+    "--ignore=E203,W503,W504",
+    "--max-complexity",
+    "15"
+  ],
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false,
+  "explorer.confirmDelete": false,
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/.venv/lib/site-packages"
+  ]
+}
