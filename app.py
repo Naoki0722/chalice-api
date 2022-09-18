@@ -18,10 +18,10 @@ def hello_name(name):
 
 @app.route("/users", methods=["POST"])
 def create_user():
-    if app.current_request is not None:
-        user_as_json = app.current_request.json_body
-        return {"user": user_as_json}
-    raise BadRequestError("paramater not found")
+    if app.current_request is None:
+        raise BadRequestError("paramater not found")
+    user_as_json = app.current_request.json_body
+    return {"user": user_as_json}
 
 
 # Exception Example
