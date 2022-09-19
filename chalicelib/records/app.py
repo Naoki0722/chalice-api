@@ -20,7 +20,7 @@ def get_records(record_id):
 def post_record():
     try:
         return database.post_record(db_record.current_request.json_body)
-    except database.MyError as e:
+    except database.DBDataCheckException as e:
         print(traceback.format_exc())
         print(f"DB登録エラー!詳細 : {e}")
         raise BadRequestError("This is a bad request")
@@ -34,7 +34,7 @@ def post_record():
 def delete_record(record_id):
     try:
         return database.delete_record(record_id)
-    except database.MyError as e:
+    except database.DBDataCheckException as e:
         print(traceback.format_exc())
         print(f"DB登録エラー!詳細 : {e}")
         raise BadRequestError("This is a bad request")
