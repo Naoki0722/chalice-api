@@ -5,10 +5,12 @@
 [![Code style linter: flake8](https://img.shields.io/badge/Code%20style%20linter-flake8-lightgrey)](https://github.com/PyCQA/flake8)
 [![Check: Pylance](https://img.shields.io/badge/Check-Pylance-red)](https://github.com/microsoft/pylance-release)
 
+勉強会用で作成したテストアプリケーションです。
+
 ## 技術スタック
 
 - Language：Python3.9.6
-- Framework : CHALICE
+- Framework : Chalice
 - Linter：flake8
 - Formatter：black
 - 解析ツール：Pylance
@@ -45,6 +47,33 @@ source .venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
+
+### ローカルサーバーの起動
+
+```
+$ chalice local
+```
+
+## デプロイ
+
+AWSへのデプロイは下記コマンドで対応可能
+
+```
+$ chalice deploy
+```
+
+IAMとLambdaとAPIGatewayが自動で作成される。
+
+## dynamoDBへの接続
+
+`db/README.md` を参照して下さい。
+
+## リソースの削除
+
+```
+$ chalice delete
+```
+
 
 ## その他
 
