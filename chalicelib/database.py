@@ -1,11 +1,9 @@
 import os
 import boto3
-
-
 from boto3.resources.base import ServiceResource
 
 
-class MyError(Exception):
+class DBDataCheckException(Exception):
     pass
 
 
@@ -36,7 +34,7 @@ def post_record(item):
     table = _get_database().Table(os.environ["DB_TABLE_NAME"])
     table_data = table.get_item(Key={"id": item["id"]})
     if "Item" in table_data:
-        raise MyError("既にデータがあります")
+        raise DBDataCheckException("既にデータがあります")
     put_data = table.put_item(Item=item)
     if put_data:
         put_data["ResponseMetadata"]["message"] = "success create!"
@@ -47,7 +45,7 @@ def delete_record(record_id):
     table = _get_database().Table(os.environ["DB_TABLE_NAME"])
     table_data = table.get_item(Key={"id": record_id})
     if "Item" not in table_data:
-        raise MyError("データがないため、削除できません")
+        raise DBDataCheckException("データがないため、削除できません")
     delete_data = table.delete_item(
         TableName=os.environ["DB_TABLE_NAME"], Key={"id": record_id}
     )
