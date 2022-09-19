@@ -1,9 +1,11 @@
 from chalice.app import Chalice
 from chalice.app import BadRequestError
 from chalicelib.articles.app import articles_app
+from chalicelib.records.app import db_record
 
 app = Chalice(app_name="sample-app")
 app.register_blueprint(articles_app)
+app.register_blueprint(db_record)
 
 
 @app.route("/")
