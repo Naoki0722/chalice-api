@@ -1,14 +1,15 @@
-name: DeployTest
-
 on:
   push:
     branches:
       - develop
 
+name: Deploy to Amazon ECS(Development)
+
 jobs:
   deploy:
-    name: Test Deploy
-    runs-on: ubuntu-18.04
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: development
     steps:
       - name: deploy
         run: echo "Execute the deproy script here."
