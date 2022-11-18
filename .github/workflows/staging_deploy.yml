@@ -8,8 +8,3 @@ jobs:
     steps:
       - name: deploy
         run: echo "Execute the deproy script here."
-      - uses: "sadayuki-matsuno/github-deployment-status@v1"
-        with:
-          status: "${{ job.status }}"
-          token: "${{ secrets.TOKEN }}"
-        if: always()
