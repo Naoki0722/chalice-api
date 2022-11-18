@@ -1,0 +1,15 @@
+name: DeployTest
+on:
+  deployment:
+jobs:
+  deploy:
+    name: DEPLOY ${{ github.event.deployment.environment }} ${{ github.event.deployment.task }}
+    runs-on: ubuntu-18.04
+    steps:
+      - name: deploy
+        run: echo "Execute the deproy script here."
+      - uses: "sadayuki-matsuno/github-deployment-status@v1"
+        with:
+          status: "${{ job.status }}"
+          token: "${{ secrets.TOKEN }}"
+        if: always()
