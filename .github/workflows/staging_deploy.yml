@@ -6,7 +6,7 @@ on:
       - develop
 
 jobs:
-  deploy:
+  test:
     name: Test Deploy
     runs-on: ubuntu-18.04
     environment: development
