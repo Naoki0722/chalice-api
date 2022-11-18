@@ -1,9 +1,13 @@
 name: DeployTest
+
 on:
-  deployment:
+  push:
+    branches:
+      - develop
+
 jobs:
   deploy:
-    name: DEPLOY ${{ github.event.deployment.environment }} ${{ github.event.deployment.task }}
+    name: Test Deploy
     runs-on: ubuntu-18.04
     steps:
       - name: deploy
