@@ -1,0 +1,15 @@
+name: DeployTestForPrd
+
+on:
+  push:
+    branches:
+      - release/*
+
+jobs:
+  test:
+    name: Test Deploy
+    runs-on: ubuntu-18.04
+    environment: development
+    steps:
+      - name: deploy
+        run: echo "Execute the deproy script here."
