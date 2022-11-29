@@ -9,7 +9,7 @@ jobs:
   test:
     name: Test Deploy
     runs-on: ubuntu-18.04
-    environment: development
+    environment: production
     steps:
       - name: deploy
         run: echo "Execute the deproy script here."
