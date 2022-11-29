@@ -12,4 +12,4 @@ jobs:
     environment: production
     steps:
       - name: deploy
-        run: echo "Execute the deproy script here."
+        run: echo "Execute the deproy production script here."
