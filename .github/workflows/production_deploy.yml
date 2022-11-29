@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: Test Deploy
+    name: Production Deploy
     runs-on: ubuntu-18.04
     environment: production
     steps:
